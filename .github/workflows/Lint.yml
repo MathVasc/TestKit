@@ -1,0 +1,13 @@
+name: SwiftLint
+on:
+  pull_request:
+    paths:
+      - 'Sources/**'
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+      - name: SwiftLint
+        uses: norio-nomura/action-swiftlint@3.1.0
