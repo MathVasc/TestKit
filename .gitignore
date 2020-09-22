@@ -9,6 +9,9 @@
 .theme/
 build/
 
+## Ruby
+Gemfile.lock
+
 ## Git
 *.orig
 

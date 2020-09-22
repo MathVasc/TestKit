@@ -1,0 +1,45 @@
+name: Run CI
+on:
+  pull_request
+jobs:
+  SPM:
+    name: Building and Testing TestKit SPM
+    runs-on: macOS-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v1
+    - name: Set Gems
+      run: |
+        gem install bundler
+        bundle install
+    - name: Set Xcode version
+      uses: maxim-lobanov/setup-xcode@v1.1
+      with:
+        xcode-version: 12.0
+    - name: Create Project
+      run: swift package generate-xcodeproj --xcconfig-overrides ./ios.xcconfig
+    - name: Build SPM
+      run: |
+        slather setup
+        xcodebuild build-for-testing \
+        -scheme TestKit-Package \
+        -destination 'platform=iOS Simulator,name=iPhone 11 Pro' \
+        -derivedDataPath derivedData \
+        | xcpretty
+    - name: Test SPM
+      run: |
+        xcodebuild test-without-building \
+        -scheme TestKit-Package \
+        -destination 'platform=iOS Simulator,name=iPhone 11 Pro' \
+        -derivedDataPath derivedData \
+        -enableCodeCoverage YES \
+        | xcpretty
+    - name: Coverage report
+      run: slather coverage -x --binary-basename 'TestKit'
+    - name: Post coverage
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./Coverage/cobertura.xml
+        fail_ci_if_error: true
+      

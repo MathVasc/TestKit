@@ -1,0 +1,8 @@
+coverage_service: cobertura_xml
+xcodeproj: TestKit.xcodeproj
+input_format: profdata
+output_directory: Coverage/
+build_directory: derivedData/Build/
+scheme: TestKit-Package
+ignore:
+  - Tests/TestKitTests/*
