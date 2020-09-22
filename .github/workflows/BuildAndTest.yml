@@ -1,8 +1,9 @@
 name: Run CI
 on:
-  pull_request
+  pull_request: 
   push:
-    branch: master
+    branches:
+      - master
 jobs:
   SPM:
     name: Building and Testing TestKit SPM
