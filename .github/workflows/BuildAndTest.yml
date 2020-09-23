@@ -20,7 +20,9 @@ jobs:
       with:
         xcode-version: 12.0
     - name: Create Project
-      run: swift package generate-xcodeproj --xcconfig-overrides ./ios.xcconfig
+      run: |
+        rm -rf TestKit.xcodeproj
+        swift package generate-xcodeproj --xcconfig-overrides ./ios.xcconfig
     - name: Build SPM
       run: |
         slather setup
