@@ -26,6 +26,7 @@ jobs:
       run: |
         git config --global user.name 'MathVasc'
         git config --global user.email 'ma.vasconcelos98@gmail.com'
+        git add .
         git commit -m "Release: Update Project"
         git push origin master
   BumpVersion:

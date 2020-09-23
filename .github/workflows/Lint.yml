@@ -3,6 +3,9 @@ on:
   pull_request:
     paths:
       - 'Sources/**'
+      - 'ios.xcconfig'
+      - 'Package.swift'
+      - '.swiftlint.yml'
 jobs:
   lint:
     runs-on: ubuntu-latest
