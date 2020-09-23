@@ -12,8 +12,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
     - name: Set Xcode version
       uses: maxim-lobanov/setup-xcode@v1.1
       with:
@@ -35,6 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        ref: master
         with:
           fetch-depth: 0
       - name: Bump version and push tag
