@@ -2,7 +2,7 @@ import UIKit
 
 public extension UIControl {
 
-    /// Use this method to simulate a control event in a especific UIControl.
+    /// Use this method to simulate a control event in a specific UIControl.
     /// - Parameter controlEvent: the control event that will be simulated in the UIControl.
     func sendFakeAction(for controlEvent: UIControl.Event) {
         allTargets.forEach { target in

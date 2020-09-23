@@ -2,7 +2,7 @@ import UIKit
 
 public extension UICollectionView {
 
-    /// Use this method to simulate a tap in a especific UICollectionView IndexPath.
+    /// Use this method to simulate a tap in a specific UICollectionView IndexPath.
     /// - Parameters:
     ///   - indexPath: The IndexPath where the tap will be simulated.
     /// - Throws: If the Collection View doesn't have a delegate it will throw an error.

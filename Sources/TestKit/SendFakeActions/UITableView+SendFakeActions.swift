@@ -2,7 +2,7 @@ import UIKit
 
 public extension UITableView {
 
-    /// Use this method to simulate a tap in a especific UITableView IndexPath.
+    /// Use this method to simulate a tap in a specific UITableView IndexPath.
     /// - Parameters:
     ///   - indexPath: The IndexPath where the tap will be simulated.
     /// - Throws: If the Table View doesn't have a delegate it will throw an error.
