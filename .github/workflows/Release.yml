@@ -42,6 +42,7 @@ jobs:
           tag_prefix: ''
   PodRelease:
     name: Update Podspec and publish
+    needs: BumpVersion
     runs-on: macos-latest
     steps: 
       - name: Checkout repository
