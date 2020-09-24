@@ -7,3 +7,4 @@ VALIDATE_PRODUCT = YES
 LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks
 TARGETED_DEVICE_FAMILY = 1, 2
 OTHER_LDFLAGS = -weak_framework XCTest -weak-lswiftXCTest
+ENABLE_BITCODE = NO
