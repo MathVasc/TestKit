@@ -1,6 +1,6 @@
 name: 'Update pob lib'
 on: 
-  create:
+  push:
     tags: 
       - v*
 jobs:
