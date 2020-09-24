@@ -1,16 +1,15 @@
 name: 'Update pob lib'
-on: 
+on:
   push:
-    tags: 
-      - v*
+    tags:
+      - '*'
 jobs:
   pod_lib_update:
     runs-on: macos-latest
     steps: 
       - name: Checkout
         uses: actions/checkout@v2
-      - name: pod lib update
-        uses: wlixcc/pod-lib-update-action@1.0.0
-        with:
-          spec_repo_url: https://wlixcc:${{secrets.ACCESS_TOKEN}}@github.com/MathVasc/TestKit.git 
-          spec_file_path: /TestKit.podspec
+      - name: pod repo update
+          uses: maxep/pod-repo-push-action@0.1.2
+          with:
+            repo-url: https://maxep:${{ secrets.ACCESS_TOKEN }}@github.com/MathVasc/TestKit.git 

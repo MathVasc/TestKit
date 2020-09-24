@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "TestKit"
-    s.version      = "1.0.0"
+    s.version      = "0.0.0"
     s.summary      = "A Helper Framework for Swift Testing"
     s.description  = <<-DESC
                      Use TestKit to write tests more simply.
@@ -9,10 +9,10 @@ Pod::Spec.new do |s|
     s.author       = "Matheus de Vasconcelos"
     s.ios.deployment_target = "11.0"
     s.source       = { :git => "https://github.com/MathVasc/TestKit.git",
-                       :tag => "v{s.version}" }
+                       :tag => "#{s.version}" }
   
     s.source_files = [
-      "Sources/**/*.swift"
+      "Sources/**/**.swift"
     ]
   
     s.weak_framework = "XCTest"
