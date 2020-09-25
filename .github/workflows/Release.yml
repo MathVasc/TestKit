@@ -40,18 +40,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tag_prefix: ''
-  PodRelease:
-    name: Update Podspec and publish
-    needs: BumpVersion
-    runs-on: macos-latest
-    steps: 
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          ref: master
-          fetch-depth: 0
-      - name: pod repo update
-        uses: wlixcc/pod-lib-update-action@1.0.0
-        with:
-          spec_repo_url: https://wlixcc:${{secrets.ACCESS_TOKEN}}@github.com/MathVasc/TestKit.git
-          spec_file_path: /TestKit.podspec 
