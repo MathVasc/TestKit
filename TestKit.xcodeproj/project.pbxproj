@@ -529,8 +529,8 @@
       "OBJ_56" = {
          isa = "PBXGroup";
          children = (
-            "TestKit::TestKit::Product",
-            "TestKit::TestKitTests::Product"
+            "TestKit::TestKitTests::Product",
+            "TestKit::TestKit::Product"
          );
          name = "Products";
          path = "";
