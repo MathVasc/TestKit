@@ -48,4 +48,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
       - name: Pod repo update
-        run: ./Scripts/PodPublish.sh
+        uses: wlixcc/pod-lib-update-action@1.0.0
+        with:
+          spec_repo_url: https://wlixcc:${{secrets.ACCESS_TOKEN}}@github.com/MathVasc/TestKit.git
+          spec_file_path: /TestKit.podspec
+          lint_args: --allow-warnings
+          push_args: --allow-warnings
