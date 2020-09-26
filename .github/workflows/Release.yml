@@ -14,16 +14,17 @@ jobs:
       uses: maxim-lobanov/setup-xcode@v1.1
       with:
         xcode-version: 12.0
-    - name: Generate Project for Carthage
+    - name: Setup for Carthage and CocoaPods
       run: |
         rm -rf TestKit.xcodeproj
         swift package generate-xcodeproj --xcconfig-overrides ./ios.xcconfig
+        ./Scripts/UpdatePodspec.sh
     - name: Push project
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
         git add .
-        git commit -m "Release: Update Project for Carthage"
+        git commit -m "Release Carthage and CocoaPods"
         git push
   BumpVersion:
     name: Bump Version
@@ -49,7 +50,4 @@ jobs:
         with:
           fetch-depth: 0
       - name: pod repo update
-        uses: wlixcc/pod-lib-update-action@1.0.0
-        with:
-          spec_repo_url: https://wlixcc:${{secrets.ACCESS_TOKEN}}@github.com/MathVasc/TestKit.git
-          spec_file_path: /TestKit.podspec 
+        run: ./Scripts/PodPublish.sh
