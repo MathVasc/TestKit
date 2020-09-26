@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
-    s.name         = "TestKit"
-    s.version      = "0.0.1"
+    s.name         = "MVTestKit"
+    s.version      = "0.0.0"
     s.summary      = "A Helper Framework for Swift Testing"
     s.description  = <<-DESC
-                     Use TestKit to write tests more simply.
+                     Use TestKit to write tests more simply with Premade helpers.
                      DESC
     s.homepage     = "https://github.com/MathVasc/TestKit"
     s.author       = "Matheus de Vasconcelos"
