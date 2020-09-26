@@ -46,8 +46,6 @@ jobs:
     runs-on: macos-latest
     steps: 
       - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: pod repo update
+        uses: actions/checkout@v1
+      - name: Pod repo update
         run: ./Scripts/PodPublish.sh
