@@ -2,7 +2,7 @@
 
 set -o pipefail
 
-PODSPEC_FILE="TestKit.podspec"
+PODSPEC_FILE="MVTestKit.podspec"
 TAG=$(git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1)
 if ! [ -n "$TAG" ]; then
   TAG='0.0.0'
