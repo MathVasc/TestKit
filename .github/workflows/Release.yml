@@ -20,11 +20,11 @@ jobs:
         swift package generate-xcodeproj --xcconfig-overrides ./ios.xcconfig
     - name: Push project
       run: |
-        git config --global user.name 'MathVasc'
-        git config --global user.email 'ma.vasconcelos98@gmail.com'
+        git config user.name github-actions
+        git config user.email github-actions@github.com
         git add .
-        git commit -m "Release: Update Project"
-        git push origin master
+        git commit -m "Release: Update Project for Carthage"
+        git push
   BumpVersion:
     name: Bump Version
     needs: UpdateProject
@@ -33,10 +33,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          ref: master
           fetch-depth: 0
       - name: Bump version and push tag
         uses: mathieudutour/github-tag-action@v4.5
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tag_prefix: ''
+  PodRelease:
+    name: Update Podspec and publish
+    needs: BumpVersion
+    runs-on: macos-latest
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: git fetch
+      - name: pod repo update
+        uses: wlixcc/pod-lib-update-action@1.0.0
+        with:
+          spec_repo_url: https://wlixcc:${{secrets.ACCESS_TOKEN}}@github.com/MathVasc/TestKit.git
+          spec_file_path: /TestKit.podspec 
