@@ -534,8 +534,8 @@
       "OBJ_56" = {
          isa = "PBXGroup";
          children = (
-            "TestKit::TestKitTests::Product",
-            "TestKit::TestKit::Product"
+            "TestKit::TestKit::Product",
+            "TestKit::TestKitTests::Product"
          );
          name = "Products";
          path = "";
@@ -559,17 +559,17 @@
       };
       "OBJ_61" = {
          isa = "PBXFileReference";
-         path = "Gemfile";
+         path = "MVTestKit.podspec";
          sourceTree = "<group>";
       };
       "OBJ_62" = {
          isa = "PBXFileReference";
-         path = "ios.xcconfig";
+         path = "Gemfile";
          sourceTree = "<group>";
       };
       "OBJ_63" = {
          isa = "PBXFileReference";
-         path = "TestKit.podspec";
+         path = "ios.xcconfig";
          sourceTree = "<group>";
       };
       "OBJ_65" = {
