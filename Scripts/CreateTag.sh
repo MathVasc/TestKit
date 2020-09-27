@@ -2,10 +2,6 @@
 
 set -o pipefail
 
-git config user.name github-actions
-git config user.email github-actions@github.com
-git pull origin master
-
 TAG=$(git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1)
 if ! [ -n "$TAG" ]; then
   TAG='0.0.0'

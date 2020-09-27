@@ -37,7 +37,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
+
+      - name: Get last commit
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git pull
+          
       - name: Bump version and push tag
         run: ./Scripts/CreateTag.sh
 
@@ -48,6 +55,7 @@ jobs:
     steps: 
       - name: Checkout repository
         uses: actions/checkout@v1
+
       - name: Pod repo update
         run: ./Scripts/PodPublish.sh
         env:
